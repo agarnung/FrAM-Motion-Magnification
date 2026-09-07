@@ -1,0 +1,24 @@
+# Dependencias de FrAM (fracmag)
+#
+# Instalación:
+#     python3 -m venv --system-site-packages .venv
+#     source .venv/bin/activate
+#     pip install -r fracmag/requirements.txt
+#
+# --- Núcleo: motor offline (fracmag.py) y de tiempo real (fracmag_rt.py) ---
+numpy>=1.24
+scipy>=1.10
+opencv-python>=4.8
+
+# --- Figuras de los experimentos ---
+matplotlib>=3.7
+
+# --- Opcional -------------------------------------------------------------
+# tkinter, que usa la variante live_fram_tk.py, NO se instala por pip: es un
+# paquete del sistema.  En Debian/Ubuntu:
+#     sudo apt install python3-tk
+# El visor principal (live_fram.py) no lo necesita: dibuja su propio panel de
+# sliders con OpenCV.
+#
+# scikit-learn no se requiere: k-means y las métricas están implementados en el
+# propio código para no añadir la dependencia.

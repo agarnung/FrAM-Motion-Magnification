@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Environment / IDE
+/.vscode/
+/.idea/
+.claude/
+*.user
+
+# Reference clips of Wu et al. 2012: not ours to redistribute.
+# Fetch them with `python3 fetch_videos.py`.
+/assets/source/
+
+# LaTeX build artifacts (paper/fram.pdf is kept on purpose)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
