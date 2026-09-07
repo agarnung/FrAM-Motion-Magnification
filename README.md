@@ -25,7 +25,7 @@ $$
 | **Real time** | `fracmag_rt.py` | live viewer, online processing |
 | Offline | `fracmag.py` | paper figures (zero-phase filter) |
 
-Details and equations: [preprint](paper/fram.tex). This README is how to run it.
+Details and equations: [preprint](https://arxiv.org/abs/2609.04502). This README is how to run it.
 
 ## Offline vs real time
 
