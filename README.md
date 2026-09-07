@@ -2,15 +2,15 @@
 
 **TL;DR:** FrAM is an Eulerian method for sub-pixel video motion magnification. It replaces EVM’s temporal band-pass (Wu et al. 2012; reimplemented here as baseline) with a **Grünwald–Letnikov fractional derivative of order ν**
 
-\[
+$$
 Y_t = S_t + g \cdot D^\nu\,\mathrm{BP}[S_t]
-\]
+$$
 
-on a Laplacian pyramid (GL weights \(w_k = w_{k-1}(k-1-\nu)/k\), truncated memory \(K\), zero-phase Butterworth band-pass offline), and a **per-pixel gain from phase reliability**
+on a Laplacian pyramid (GL weights $w_k = w_{k-1}(k-1-\nu)/k$, truncated memory $K$, zero-phase Butterworth band-pass offline), and a **per-pixel gain from phase reliability**
 
-\[
+$$
 \rho=\frac{A^2}{A^2+\sigma^2},\qquad g=\alpha\cdot\frac{\rho}{1+\nu(1-\rho)}
-\]
+$$
 
 (monogenic/Riesz amplitude; no hand-tuned thresholds). A causal streaming engine matches the offline math for real time. On synthetic and MIT CSAIL clips (face, baby, subway), FrAM keeps flat-region noise near the input level where EVM roughly doubles it, with clearer spatial selectivity; **adaptive gain drives most of the noise win**, while **ν mainly trades amplification against noise**.
 
@@ -74,7 +74,7 @@ python3 live_fram.py --video path/to/face.mp4
 | `--gray` | color | start grayscale |
 | `--fps F` | auto | force sampling rate |
 
-**Panel:** Gain (α), Fractional order (ν), band (Hz), pyramid levels, GL memory \(K\), ρ percentile, saturation. Checkboxes: FrAM/EVM, adaptive gain, ρ mask, color/gray, freeze.
+**Panel:** Gain (α), Fractional order (ν), band (Hz), pyramid levels, GL memory $K$, ρ percentile, saturation. Checkboxes: FrAM/EVM, adaptive gain, ρ mask, color/gray, freeze.
 
 | Key | Action |
 |---|---|
@@ -85,7 +85,7 @@ python3 live_fram.py --video path/to/face.mp4
 
 Don’t resize the window if you can avoid it (mouse maps 1:1); keyboard always works.
 
-**What to try:** `a` (adaptive ablation), `m` (ρ on edges / dark on flats), `e` (vs EVM), lower \(K\) and watch fps.
+**What to try:** `a` (adaptive ablation), `m` (ρ on edges / dark on flats), `e` (vs EVM), lower $K$ and watch fps.
 
 | Target | band (Hz) | α | ν | levels | Preset |
 |---|---|---|---|---|---|
